@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-export const Home = (props) => {
+export const Register = (props) => {
   const logIn = (e) => {
     e.preventDefault();
-    props.navigateTo('map');
+    props.navigateTo('home');
   }
   const register = (e) => {
     e.preventDefault();
-    props.navigateTo('register');
+    props.navigateTo('profile');
   }
 
   return (
@@ -18,7 +18,7 @@ export const Home = (props) => {
           <img src="./pic/logoBig.png" alt="" className="entrance__left-logo" />
         </div>
       </div>
-      <div className="loginform">
+      <div className="loginform registerform">
         <div className="map">
           <img alt="map" src="./pic/map.png" className="mapPic" />
         </div>
@@ -26,13 +26,17 @@ export const Home = (props) => {
         <form action="" className="loginform__form">
           <label htmlFor="email" className="form-email-label">Email:</label>
           <input id="email" type="email" name="email" size="28" className="form-email-input" placeholder="mail@mail.ru" />
+
+          <label htmlFor="textname" className="form-name-label">What is your name?</label>
+          <input id="textname" type="text" name="textname" size="28" className="form-name-input" placeholder="John Smith" />
+
           <label htmlFor="password" className="form-pwd-label">Password:</label>
           <input id="password" type="password" name="password" size="28" className="form-pwd-input" placeholder="******" />
-          <button className="loginform__forgot">Forgot the password?</button>
-          <button id="submit" name="submit" className="loginform__button" onClick={logIn}>Enter</button>
+
+          <button id="submit" name="submit" className="loginform__button" onClick={register}>Register</button>
         </form>
         <div className="loginform__register">
-          New user? <button className="loginform__register-link" onClick={register}>Register</button>
+          Already have an account? <button className="loginform__register-link" onClick={logIn}>Sign in</button>
         </div>
       </div>
     </div>

@@ -1,14 +1,11 @@
 import React from 'react';
 import {Home} from './Home';
-import {About} from './About';
+import {Map} from './Map';
 import {Profile} from './Profile';
+import {Register} from './Register';
 import './App.css';
 
-const PAGES = {
-  home: <Home/>,
-  about: <About/>,
-  profile: <Profile/>,
-}
+
 
 class App extends React.Component {
 
@@ -18,23 +15,41 @@ class App extends React.Component {
     this.setState({currentPage: page})
   };
 
+  getPage = (page) => {
+      const PAGES = {
+      home: <Home navigateTo={this.navigateTo} />,
+      map: <Map navigateTo={this.navigateTo} />,
+      profile: <Profile/>,
+      register: <Register navigateTo={this.navigateTo} />,
+    };
+
+    return PAGES[page];
+  }
+
+  
+
   render() {
+    const page = this.getPage(this.state.currentPage);
+
     return <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <button onClick={() => {this.navigateTo("home")}}>
+      <header className="header hidden">
+      <div className="header__left">
+          <img src="./pic/logoHeader.png" alt="" className="header__left-logo" />
+      </div>
+        <nav className="header__right">
+          <ul className="header__right-list">
+            <li className="header__right-item">
+              <button className="header__right-link" onClick={() => {this.navigateTo("home")}}>
                 Home
               </button>
             </li>
-            <li>
-              <button onClick={() => {this.navigateTo("about")}}>
-                About
+            <li className="header__right-item">
+              <button className="header__right-link" onClick={() => {this.navigateTo("map")}}>
+                Map
               </button>
             </li>
-            <li>
-              <button onClick={() => {this.navigateTo("profile")}}>
+            <li className="header__right-item">
+              <button className="header__right-link" onClick={() => {this.navigateTo("profile")}}>
                 Profile
               </button>
             </li>
@@ -43,7 +58,7 @@ class App extends React.Component {
       </header>
       <main>
         <section>
-          {PAGES[this.state.currentPage]}
+          {page}
         </section>
       </main>
     </>;
