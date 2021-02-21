@@ -39,11 +39,6 @@ class App extends React.Component {
         <nav className="header__right">
           <ul className="header__right-list">
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.navigateTo("home")}}>
-                Home
-              </button>
-            </li>
-            <li className="header__right-item">
               <button className="header__right-link" onClick={() => {this.navigateTo("map")}}>
                 Map
               </button>
@@ -51,6 +46,11 @@ class App extends React.Component {
             <li className="header__right-item">
               <button className="header__right-link" onClick={() => {this.navigateTo("profile")}}>
                 Profile
+              </button>
+            </li>
+            <li className="header__right-item">
+              <button className="header__right-link" onClick={() => {this.navigateTo("home")}}>
+                Sign Out
               </button>
             </li>
           </ul>
