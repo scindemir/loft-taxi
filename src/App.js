@@ -49,7 +49,9 @@ class App extends React.Component {
               </button>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.navigateTo("home")}}>
+              <button className="header__right-link" onClick={() => {
+                this.navigateTo("home");
+                document.querySelector('.header').classList.add('hidden')}}>
                 Sign Out
               </button>
             </li>
