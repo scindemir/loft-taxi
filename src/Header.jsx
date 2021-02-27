@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from './AuthContext'
 
+
 export class Header extends Component {
 
     render() {

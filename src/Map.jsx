@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Header} from './Header';
 import mapboxgl from 'mapbox-gl';
 
 
@@ -21,8 +22,13 @@ export class Map extends Component {
   }
 
   render() {
-    return <div className="map-wrapper">
+    return <>
+    <header>
+      <Header />
+    </header>
+    <div className="map-wrapper">
       <div data-testid="map" className="mapReal" ref={this.mapContainer} />
     </div>
+    </>
   }
 }

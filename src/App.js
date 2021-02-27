@@ -29,14 +29,7 @@ class App extends React.Component {
 
   render() {
     return <>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <section>
-          {PAGES[this.state.currentPage]({navigate: this.navigateTo})}
-        </section>
-      </main>
+      {PAGES[this.state.currentPage]({navigate: this.navigateTo})}
     </>;
   }
 }

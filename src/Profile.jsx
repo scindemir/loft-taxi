@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Header} from './Header';
 import { withAuth } from './AuthContext';
 
 
@@ -9,7 +10,12 @@ export class Profile extends Component {
   }
 
   render() {
-    return <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
+    return <>
+    <header>
+      <Header />
+    </header>
+    <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
+    </>
   }
 }
 
