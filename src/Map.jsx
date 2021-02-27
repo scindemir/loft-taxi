@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
+import mapboxgl from 'mapbox-gl';
 
 
-export const Map = () => {
-  const header = document.querySelector('.header');
-  if (header.classList.contains('hidden')){
-    header.classList.remove('hidden');
-  };
-  
-  return (
-    <div className="mapPage">
-      <img alt="map" src="./pic/map.png" className="mapPic" />
+export class Map extends Component {
+  map = null;
+  mapContainer = React.createRef();
+
+  componentDidMount() {
+    mapboxgl.accessToken = "pk.eyJ1Ijoic2FzaGFjaW5kZW1pciIsImEiOiJja2xtZjRmMGYwOHAyMnFxeWhuYWZ6ZXA5In0.Wf2x9omMLeo5zIyjPyd6_g";
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v9",
+      center: [30.3056504, 59.9429126],
+      zoom: 10,
+    })
+  }
+
+  componentWillUnmount() {
+    this.map.remove();
+  }
+
+  render() {
+    return <div className="map-wrapper">
+      <div data-testid="map" className="mapReal" ref={this.mapContainer} />
     </div>
-  )
+  }
 }

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withAuth } from './AuthContext';
 
 
-export const Profile = () => {
-  const header = document.querySelector('.header');
-  if (header.classList.contains('hidden')){
-    header.classList.remove('hidden');
-  };
-  
-  return (
-    <h1>Profile!</h1>
-  )
+export class Profile extends Component {
+  unauthenticate = () => {
+    this.props.logOut();
+    this.props.navigate("home");
+  }
+
+  render() {
+    return <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
+  }
 }
+
+export const ProfileWithAuth = withAuth(Profile);
