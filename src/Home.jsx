@@ -27,7 +27,7 @@ export class Home extends Component {
       this.props.isLoggedIn ? (
         <>
         <header>
-          <Header />
+          <Header navigate={this.props.navigate}/>
         </header>
         <p>
           You are logged in <button onClick={this.goToProfile}>go to profile</button>

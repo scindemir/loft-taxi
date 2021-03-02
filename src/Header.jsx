@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { withAuth } from './AuthContext'
+import { withAuth } from './AuthContext';
+
 
 
 export class Header extends Component {
-
     render() {
       return <>
       <div className="header">
@@ -13,19 +13,17 @@ export class Header extends Component {
         <nav className="header__right">
           <ul className="header__right-list">
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.navigateTo("map")}}>
+              <button className="header__right-link" onClick={() => {this.props.navigate("map")}}>
                 Map
               </button>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.navigateTo("profile")}}>
+              <button className="header__right-link" onClick={() => {this.props.navigate("profile")}}>
                 Profile
               </button>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={
-                this.unauthenticate
-                }>
+              <button className="header__right-link" onClick={this.props.unauthenticate}>
                 Log Out
               </button>
             </li>

@@ -24,7 +24,7 @@ export class Map extends Component {
   render() {
     return <>
     <header>
-      <Header />
+      <Header navigate={this.props.navigate} />
     </header>
     <div className="map-wrapper">
       <div data-testid="map" className="mapReal" ref={this.mapContainer} />

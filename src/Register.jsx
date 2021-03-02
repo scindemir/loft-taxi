@@ -4,11 +4,11 @@ import React from 'react';
 export const Register = (props) => {
   const logIn = (e) => {
     e.preventDefault();
-    props.navigateTo('home');
+    props.navigate('home');
   }
   const register = (e) => {
     e.preventDefault();
-    props.navigateTo('profile');
+    props.navigate('profile');
   }
 
   return (

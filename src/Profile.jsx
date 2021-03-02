@@ -12,7 +12,7 @@ export class Profile extends Component {
   render() {
     return <>
     <header>
-      <Header />
+      <Header navigate={this.props.navigate}/>
     </header>
     <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
     </>
