@@ -23,7 +23,10 @@ export class Header extends Component {
               </button>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={this.props.unauthenticate}>
+              <button className="header__right-link" onClick={ () => {
+                this.props.logOut();
+                this.props.navigate("home");
+                }}>
                 Log Out
               </button>
             </li>

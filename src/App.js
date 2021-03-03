@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from './Header';
+import {HeaderWithAuth} from './Header';
 import {HomeWithAuth} from './Home';
 import {Map} from './Map';
 import {ProfileWithAuth} from './Profile';

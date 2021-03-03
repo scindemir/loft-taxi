@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Header} from './Header';
+import {HeaderWithAuth} from './Header';
 import { withAuth } from './AuthContext';
 
 
@@ -12,7 +12,7 @@ export class Profile extends Component {
   render() {
     return <>
     <header>
-      <Header navigate={this.props.navigate}/>
+      <HeaderWithAuth navigate={this.props.navigate}/>
     </header>
     <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
     </>

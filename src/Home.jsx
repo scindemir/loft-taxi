@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from './AuthContext';
-import { Header } from './Header';
+import {HeaderWithAuth} from './Header';
 
 
 export class Home extends Component {
@@ -27,7 +27,7 @@ export class Home extends Component {
       this.props.isLoggedIn ? (
         <>
         <header>
-          <Header navigate={this.props.navigate}/>
+          <HeaderWithAuth navigate={this.props.navigate}/>
         </header>
         <p>
           You are logged in <button onClick={this.goToProfile}>go to profile</button>
