@@ -1,26 +1,24 @@
 import React from 'react';
+import { HeaderWithAuth } from './Header';
 import { render, fireEvent } from '@testing-library/react';
-import App from './App';
 
-jest.mock('./Home', () => ({ Home: () => <div>Home component</div> }));
 jest.mock('./Map', () => ({ Map: () => <div>Map component</div> }));
 jest.mock('./Profile', () => ({ Profile: () => <div>Profile component</div> }));
+jest.mock('./Home', () => ({ LogOut: () => <div>LogOut</div> }));
 
-describe("App", () => {
-  it("renders correclty", () => {
-    const { container } = render(<App />);
-    expect(container.innerHTML).toMatch("Home component");
-  });
-
+describe("HeaderWithAuth", () => {
   describe("when clicked on navigation buttons", () => {
     it("opens the corresponding page", () => {
-      const { getByText, container } = render(<App />);
+      const { getByText, container } = render(<HeaderWithAuth />);
 
       fireEvent.click(getByText('Map'));
       expect(container.innerHTML).toMatch("Map component");
 
       fireEvent.click(getByText('Profile'));
       expect(container.innerHTML).toMatch("Profile component");
+
+      fireEvent.click(getByText('Log Out'));
+      expect(container.innerHTML).toMatch("LogOut");
     });
   });
 });
