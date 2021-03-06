@@ -13,7 +13,6 @@ class App extends React.Component {
 
   render() {
     return <>
-    <BrowserRouter>
       <Switch>
           <Route exact path="/" component={HomeWithAuth} />
           <Route exact path="/Home" component={HomeWithAuth} />
@@ -21,10 +20,6 @@ class App extends React.Component {
           <PrivateRoute path="/Map" component={Map} />
           <PrivateRoute path="/Profile" component={ProfileWithAuth} />
         </Switch>
-    </BrowserRouter>
-     
-
-
     </>;
   }
 }

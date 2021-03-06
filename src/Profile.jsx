@@ -7,13 +7,12 @@ import { logOut } from './actions';
 export class Profile extends Component {
   unauthenticate = () => {
     this.props.logOut();
-    this.props.navigate("home");
   }
 
   render() {
     return <>
     <header>
-      <HeaderWithAuth navigate={this.props.navigate}/>
+      <HeaderWithAuth />
     </header>
     <p> Your profile. <button onClick={this.unauthenticate}>Log out</button></p>
     </>
