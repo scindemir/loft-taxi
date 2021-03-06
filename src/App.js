@@ -2,35 +2,27 @@ import React from 'react';
 import {HomeWithAuth} from './Home';
 import {Map} from './Map';
 import {ProfileWithAuth} from './Profile';
-import {withAuth} from './AuthContext';
-import {Register} from './Register';
+import { connect } from 'react-redux';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute';
 
-const PAGES = {
-    home: (props) => <HomeWithAuth {...props} />,
-    map: (props) => <Map {...props} />,
-    profile: (props) => <ProfileWithAuth {...props}/>,
-    register: (props) => <Register {...props} />,
-    };
+
+
 
 class App extends React.Component {
 
-  state = { currentPage: "home"};
-
-  navigateTo = (page) => {
-    if (this.props.isLoggedIn || page === "home" || page === "register") {
-      this.setState({currentPage: page});
-    } else {
-      this.setState({currentPage: "home" });
-    }
-    
-  };
-
   render() {
     return <>
-      {PAGES[this.state.currentPage]({navigate: this.navigateTo})}
+      <Switch>
+        <Route exact path="/" component={HomeWithAuth} />
+        <PrivateRoute path="/Map" component={Map} />
+        <PrivateRoute path="/Profile" component={ProfileWithAuth} />
+      </Switch>
     </>;
   }
 }
 
-export default withAuth(App);
+export default connect(
+  state => ({isLoggedIn: state.auth.isLoggedIn})
+)(App);

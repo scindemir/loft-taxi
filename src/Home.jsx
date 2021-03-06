@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withAuth } from './AuthContext';
+import { connect } from 'react-redux';
+import { authenticate } from './actions';
 import {HeaderWithAuth} from './Header';
 
 
@@ -15,7 +16,7 @@ export class Home extends Component {
   authenticate = (event) => {
     event.preventDefault();
     const { email, password } = event.target;
-    this.props.logIn(email.value, password.value);
+    this.props.authenticate(email.value, password.value);
   }
 
   
@@ -27,7 +28,7 @@ export class Home extends Component {
       this.props.isLoggedIn ? (
         <>
         <header>
-          <HeaderWithAuth navigate={this.props.navigate}/>
+          <HeaderWithAuth />
         </header>
         <p>
           You are logged in <button onClick={this.goToProfile}>go to profile</button>
@@ -66,4 +67,7 @@ export class Home extends Component {
   }
 }
 
-export const HomeWithAuth = withAuth(Home);
+export const HomeWithAuth = connect(
+  (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+  { authenticate }
+)(Home);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { withAuth } from './AuthContext';
-
+import { connect } from 'react-redux';
+import { logIn, logOut } from './actions';
+import { Link } from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute';
 
 
 export class Header extends Component {
@@ -13,22 +15,21 @@ export class Header extends Component {
         <nav className="header__right">
           <ul className="header__right-list">
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.props.navigate("map")}}>
+              <Link to='/map' className="header__right-link">
                 Map
-              </button>
+              </Link>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={() => {this.props.navigate("profile")}}>
+              <Link to='/profile' className="header__right-link">
                 Profile
-              </button>
+              </Link>
             </li>
             <li className="header__right-item">
-              <button className="header__right-link" onClick={ () => {
+              <Link to='/Home' className="header__right-link" onClick={ () => {
                 this.props.logOut();
-                this.props.navigate("home");
                 }}>
                 Log Out
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -37,4 +38,7 @@ export class Header extends Component {
     }
 }
 
-export const HeaderWithAuth = withAuth(Header);
+export const HeaderWithAuth = connect(
+  (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+  { logIn, logOut }
+)(Header);
