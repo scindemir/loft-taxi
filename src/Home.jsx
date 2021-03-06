@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from './actions';
 import {HeaderWithAuth} from './Header';
-
+import { Link } from 'react-router-dom';
 
 export class Home extends Component {
   goToProfile = () => {
@@ -55,7 +55,7 @@ export class Home extends Component {
               <button type ="submit" id="submit" className="loginform__button">Enter</button>
             </form>
             <div className="loginform__register">
-              New user? <button className="loginform__register-link" onClick={this.goToRegister}>Register</button>
+              New user? <Link to='/register' className="loginform__register-link">Register</Link>
             </div>
           </div>
         </div>

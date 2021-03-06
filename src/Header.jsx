@@ -25,7 +25,7 @@ export class Header extends Component {
               </Link>
             </li>
             <li className="header__right-item">
-              <Link to='/Home' className="header__right-link" onClick={ () => {
+              <Link to='/home' className="header__right-link" onClick={ () => {
                 this.props.logOut();
                 }}>
                 Log Out

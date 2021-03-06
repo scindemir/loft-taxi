@@ -1,11 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 export const Register = (props) => {
-  const logIn = (e) => {
-    e.preventDefault();
-    props.navigate('home');
-  }
+
   const register = (e) => {
     e.preventDefault();
     props.navigate('profile');
@@ -36,7 +34,7 @@ export const Register = (props) => {
           <button id="submit" name="submit" className="loginform__button" onClick={register}>Register</button>
         </form>
         <div className="loginform__register">
-          Already have an account? <button className="loginform__register-link" onClick={logIn}>Sign in</button>
+          Already have an account? <Link to='/home' className="loginform__register-link">Sign in</Link>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 export const PrivateRoute = connect(state => ({
   isLoggedIn: state.auth.isLoggedIn,
-}))(({component: Component, isLoggedIn, ...rest}) => (
+}))(({ component: Component, isLoggedIn, ...rest }) => (
     <Route
       {...rest}
         render={ (props) => 
