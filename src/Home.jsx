@@ -31,7 +31,7 @@ export class Home extends Component {
           <HeaderWithAuth />
         </header>
         <p>
-          You are logged in <button onClick={this.goToProfile}>go to profile</button>
+          You are logged in <Link to="/profile" >go to profile</Link>
         </p>
         </>
       ) : (
